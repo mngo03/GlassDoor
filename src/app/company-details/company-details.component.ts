@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-company-details',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyDetailsComponent implements OnInit {
 
+  pageName = 'company-details';
+  @Output() navbarEvent: EventEmitter<string> = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit() {
+    this.fireNavbarEvent();
+  }
+
+  fireNavbarEvent() {
+    this.navbarEvent.emit('company-details');
+    console.log('fired event');
   }
 
 }
