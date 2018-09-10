@@ -37,22 +37,6 @@
     display: none;
   }
   
-  .btn-expand-collapse {
-    position: absolute;
-    left: 126px;
-    bottom: 14px;
-    width: 74px;
-    padding: 8px 0;
-    border-color: black;
-    border-top: solid 1px #666;
-    border-bottom: solid 1px #666;
-    color: grey;
-    font-size: 20px;
-    text-align: center;
-    height: 45%;
-  }
-  
-  
   .navbar-primary-menu,
   .navbar-primary-menu li {
     margin:0; padding:0;
@@ -101,3 +85,23 @@
   .navbar-section-container {
     border: solid 1px #444;
   }
+
+  .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
