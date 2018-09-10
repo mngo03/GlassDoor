@@ -1,4 +1,5 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CompanyDetailsService } from '../services/company-details.service';
 
 @Component({
   selector: 'app-company-details',
@@ -7,10 +8,13 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class CompanyDetailsComponent implements OnInit {
 
-  pageName = 'company-details';
-  constructor() { }
+  pageName = 'home';
+  companies: any;
+  constructor(private companyService: CompanyDetailsService) { }
 
   ngOnInit() {
+    this.companyService.getAll().subscribe((data) =>{
+      this.companies = data;
+    });
   }
-
 }

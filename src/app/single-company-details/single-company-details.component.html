@@ -1,0 +1,56 @@
+<div class="container" *ngIf="company">
+  <form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <div class="col form-group">
+        <label>Website</label>
+        <input type="text" class="form-control" formControlName="website">
+        <div class="alert alert-danger" *ngIf="!companyForm.controls['website'].valid && companyForm.controls['website'].touched">Enter valid website</div>
+      </div>
+      <div class="col form-group">
+        <label>Total Employees</label>
+        <input type="text" class="form-control" formControlName="total_employees">
+        <div class="alert alert-danger" *ngIf="!companyForm.controls['total_employees'].valid  && companyForm.controls['total_employees'].touched">Enter valid option</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label>HQ City</label>
+        <input type="text" class="form-control" formControlName="hq_city">
+        <div class="alert alert-danger" *ngIf="!companyForm.controls['hq_city'].valid && companyForm.controls['hq_city'].touched">Enter valid HQ City</div>
+      </div>
+      <div class="col form-group">
+        <label>Annual Revenue</label>
+        <input type="text" class="form-control" formControlName="annual_revenue">
+        <div class="alert alert-danger" *ngIf="!companyForm.controls['annual_revenue'].valid  && companyForm.controls['annual_revenue'].touched">Enter valid zipcode</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label>Year Founded</label>
+        <input type="text" class="form-control" formControlName="year_founded">
+        <div class="alert alert-danger" *ngIf="!companyForm.controls['year_founded'].valid && companyForm.controls['year_founded'].touched">Enter valid HQ City</div>
+      </div>
+      <div class="col form-group">
+        <label>Company Status</label>
+        <input type="text" class="form-control" formControlName="status">
+        <div class="alert alert-danger" *ngIf="!companyForm.controls['status'].valid  && companyForm.controls['status'].touched">Enter valid zipcode</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Company Type</label>
+      <input type="text" class="form-control" formControlName="type">
+      <div class="alert alert-danger" *ngIf="!companyForm.controls['type'].valid  && companyForm.controls['type'].touched">Enter valid email</div>
+    </div>
+    <div class="form-group">
+      <label>Sector</label>
+      <input type="text" class="form-control" formControlName="sector">
+      <div class="alert alert-danger" *ngIf="!companyForm.controls['sector'].valid  && companyForm.controls['sector'].touched">Enter valid email</div>
+    </div>
+    <div class="form-group">
+        <label>Industry</label>
+        <input type="text" class="form-control" formControlName="industry">
+        <div class="alert alert-danger" *ngIf="!companyForm.controls['industry'].valid  && companyForm.controls['industry'].touched">Enter valid email</div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div> 

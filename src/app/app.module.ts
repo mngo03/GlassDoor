@@ -10,9 +10,15 @@ import { JobsRecruitingComponent } from './jobs-recruiting/jobs-recruiting.compo
 import { RouterModule, Routes } from '@angular/router';
 import { RoutingComponentComponent } from './routing-component/routing-component.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { SingleCompanyDetailsComponent } from './single-company-details/single-company-details.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
+
 //Add your routes here
 const routes: Routes = [
-  {path: 'company_details', component: CompanyDetailsComponent}
+  {path: 'company_details', component: CompanyDetailsComponent},
+  {path: 'company_details/:id', component: SingleCompanyDetailsComponent}
 ];
 
 @NgModule({
@@ -22,11 +28,14 @@ const routes: Routes = [
     RegistrationComponent,
     ReviewsComponent,
     JobsRecruitingComponent,
-    RoutingComponentComponent
+    RoutingComponentComponent,
+    SingleCompanyDetailsComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
