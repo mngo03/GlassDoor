@@ -9,35 +9,37 @@
       </div>
       <div class="col form-group">
         <label>Total Employees</label>
-        <select class="form-control" formControlName="total_employees">
-            <option *ngFor="let option of totalEmployeesOptions" [ngValue]="option">{{ option.option_name }}</option>
+        <select class="form-control" formControlName="totalEmployees">
+            <option *ngFor="let option of totalEmployeesOptions" [ngValue]="option">{{ option }}</option>
         </select>
-        <div class="alert alert-danger" *ngIf="!companyForm.controls['total_employees'].valid  && companyForm.controls['total_employees'].touched">Enter valid option</div>
+        <div class="alert alert-danger" *ngIf="!companyForm.controls['totalEmployees'].valid  && companyForm.controls['totalEmployees'].touched">Enter valid option</div>
       </div>
     </div>
     <div class="form-row">
       <div class="col form-group">
         <label>HQ City</label>
-        <input type="text" class="form-control" formControlName="hq_city">
-        <div class="alert alert-danger" *ngIf="!companyForm.controls['hq_city'].valid && companyForm.controls['hq_city'].touched">Enter valid HQ City</div>
+        <input type="text" class="form-control" formControlName="hqCity">
+        <div class="alert alert-danger" *ngIf="!companyForm.controls['hqCity'].valid && companyForm.controls['hqCity'].touched">Enter valid HQ City</div>
       </div>
       <div class="col form-group">
         <label>Annual Revenue</label>
-        <input type="text" class="form-control" formControlName="annual_revenue">
-        <div class="alert alert-danger" *ngIf="!companyForm.controls['annual_revenue'].valid  && companyForm.controls['annual_revenue'].touched">Enter valid zipcode</div>
+        <input type="text" class="form-control" formControlName="annualRevenue">
+        <div class="alert alert-danger" *ngIf="!companyForm.controls['annualRevenue'].valid  && companyForm.controls['annualRevenue'].touched">Enter valid zipcode</div>
       </div>
     </div>
     <div class="form-row">
       <div class="col form-group">
         <label>Year Founded</label>
-        <select class="form-control" formControlName="year_founded">
+        <select class="form-control" formControlName="yearFounded">
           <option *ngFor="let year of yearFoundedOptions" [ngValue]="year">{{ year }}</option>
         </select>
-        <div class="alert alert-danger" *ngIf="!companyForm.controls['year_founded'].valid && companyForm.controls['year_founded'].touched">Enter valid HQ City</div>
+        <div class="alert alert-danger" *ngIf="!companyForm.controls['yearFounded'].valid && companyForm.controls['yearFounded'].touched">Enter valid HQ City</div>
       </div>
       <div class="col form-group">
         <label>Company Status</label>
-        <input type="text" class="form-control" formControlName="status">
+        <select class="form-control" formControlName="status">
+            <option *ngFor="let status of statusOptions" [ngValue]="status">{{ status }}</option>
+        </select>
         <div class="alert alert-danger" *ngIf="!companyForm.controls['status'].valid  && companyForm.controls['status'].touched">Enter valid zipcode</div>
       </div>
     </div>

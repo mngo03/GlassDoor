@@ -16,10 +16,10 @@ export class SingleCompanyDetailsComponent implements OnInit {
   company: any;
   companyForm: FormGroup;
   totalEmployeesOptions = [
-    {option_name: '1 to 50 employees'},
-    {option_name: '51 to 500 employees'},
-    {option_name: '501 to 100 employees'},
-    {option_name: '1,001+ employees'}
+    '1 to 50 employees',
+    '51 to 500 employees',
+    '501 to 100 employees',
+    '1,001+ employees'
   ];
   yearFoundedOptions = this.generateYearsFoundedArray();
   comapnyTypeOptions = [
@@ -38,6 +38,10 @@ export class SingleCompanyDetailsComponent implements OnInit {
     'Aerospace',
     'Education'
   ];
+  statusOptions = [
+    'Good Status',
+    'Bad Status'
+  ];
 
   constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location) { }
 
@@ -54,7 +58,7 @@ export class SingleCompanyDetailsComponent implements OnInit {
       () => {
         var findIndex = function(arr: any, company: any, property: string) {
           var findTotalEmployeesValue = function (element) {
-            return element.option_name == company.totalEmployees;
+            return element == company.totalEmployees;
           }
           var findYearFoundedValue = function(element) {
             return element == company.yearFounded;
@@ -68,6 +72,9 @@ export class SingleCompanyDetailsComponent implements OnInit {
           var findIndustryValue = function(element) {
             return element == company.industry;
           }
+          var findStatusValue = function(element) {
+            return element == company.status;
+          }
           switch(property) {
             case "totalEmployees":
               return arr.findIndex(findTotalEmployeesValue);
@@ -79,6 +86,8 @@ export class SingleCompanyDetailsComponent implements OnInit {
               return arr.findIndex(findSectorValue);
             case 'industry':
               return arr.findIndex(findIndustryValue);
+            case 'status':
+              return arr.findIndex(findStatusValue);
           }
         }
 
@@ -87,17 +96,18 @@ export class SingleCompanyDetailsComponent implements OnInit {
         var companyTypeIndex = findIndex(this.comapnyTypeOptions, this.company, 'companyType');
         var sectorIndex = findIndex(this.sectorOptions, this.company, 'sector');
         var industryIndex = findIndex(this.industryOptions, this.company, 'industry');
+        var statusIndex = findIndex(this.statusOptions, this.company, 'status');
 
         this.companyForm = this._formBuilder.group({
           website: [this.company.website, Validators.required],
-          hq_city: [this.company.hqCity, Validators.required],
-          year_founded: [this.yearFoundedOptions[yearFoundedIndex], Validators.required],
+          hqCity: [this.company.hqCity, Validators.required],
+          yearFounded: [this.yearFoundedOptions[yearFoundedIndex], Validators.required],
           type: [this.comapnyTypeOptions[companyTypeIndex], Validators.required],
           sector: [this.sectorOptions[sectorIndex], Validators.required],
           industry: [this.industryOptions[industryIndex], Validators.required],
-          total_employees: [this.totalEmployeesOptions[totalEmployeeIndex], Validators.required],
-          annual_revenue: [this.company.annualRevenue, Validators.required],
-          status: [this.company.status, Validators.required]
+          totalEmployees: [this.totalEmployeesOptions[totalEmployeeIndex], Validators.required],
+          annualRevenue: [this.company.annualRevenue, Validators.required],
+          status: [this.statusOptions[statusIndex], Validators.required]
         });
       }
     );
@@ -119,9 +129,11 @@ export class SingleCompanyDetailsComponent implements OnInit {
 
   onSubmit() {
     var submitData = this.companyForm.value;
+
     const req = this.companyService.updateCompany(this.id, submitData);
     req.subscribe();
-    req.subscribe();
+    req.subscribe(data => console.log(data));
+
     location.reload();
   }
 }
