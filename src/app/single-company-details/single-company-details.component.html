@@ -1,4 +1,5 @@
 <div class="container" *ngIf="company">
+  <h2>Basic Information</h2>
   <form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
     <div class="form-row">
       <div class="col form-group">
@@ -8,7 +9,9 @@
       </div>
       <div class="col form-group">
         <label>Total Employees</label>
-        <input type="text" class="form-control" formControlName="total_employees">
+        <select class="form-control" formControlName="total_employees">
+            <option *ngFor="let option of totalEmployeesOptions" [ngValue]="option">{{ option.option_name }}</option>
+        </select>
         <div class="alert alert-danger" *ngIf="!companyForm.controls['total_employees'].valid  && companyForm.controls['total_employees'].touched">Enter valid option</div>
       </div>
     </div>
@@ -27,7 +30,9 @@
     <div class="form-row">
       <div class="col form-group">
         <label>Year Founded</label>
-        <input type="text" class="form-control" formControlName="year_founded">
+        <select class="form-control" formControlName="year_founded">
+          <option *ngFor="let year of yearFoundedOptions" [ngValue]="year">{{ year }}</option>
+        </select>
         <div class="alert alert-danger" *ngIf="!companyForm.controls['year_founded'].valid && companyForm.controls['year_founded'].touched">Enter valid HQ City</div>
       </div>
       <div class="col form-group">
@@ -38,19 +43,25 @@
     </div>
     <div class="form-group">
       <label>Company Type</label>
-      <input type="text" class="form-control" formControlName="type">
+      <select class="form-control" formControlName="type">
+          <option *ngFor="let type of comapnyTypeOptions" [ngValue]="type">{{ type }}</option>
+      </select>
       <div class="alert alert-danger" *ngIf="!companyForm.controls['type'].valid  && companyForm.controls['type'].touched">Enter valid email</div>
     </div>
     <div class="form-group">
       <label>Sector</label>
-      <input type="text" class="form-control" formControlName="sector">
+      <select class="form-control" formControlName="sector">
+          <option *ngFor="let sector of sectorOptions" [ngValue]="sector">{{ sector }}</option>
+      </select>
       <div class="alert alert-danger" *ngIf="!companyForm.controls['sector'].valid  && companyForm.controls['sector'].touched">Enter valid email</div>
     </div>
     <div class="form-group">
         <label>Industry</label>
-        <input type="text" class="form-control" formControlName="industry">
+        <select class="form-control" formControlName="industry">
+            <option *ngFor="let industry of industryOptions" [ngValue]="industry">{{ industry }}</option>
+        </select>
         <div class="alert alert-danger" *ngIf="!companyForm.controls['industry'].valid  && companyForm.controls['industry'].touched">Enter valid email</div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" *ngIf="showSubmitButton()">Submit</button>
   </form>
 </div> 
