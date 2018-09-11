@@ -9,6 +9,7 @@ export class RoutingComponentComponent implements OnInit {
 
   collapseFlag: boolean = false;
   activePage = "home";
+  companyID: string;
   constructor() { }
 
   ngOnInit() {
@@ -35,7 +36,9 @@ export class RoutingComponentComponent implements OnInit {
 
   onActivate(component) {
     console.log(component.pageName);
+    console.log(component.id);
     this.activePage = component.pageName;
+    this.companyID = component.id;
   }
 
 }

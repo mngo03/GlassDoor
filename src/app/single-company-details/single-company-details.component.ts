@@ -42,6 +42,10 @@ export class SingleCompanyDetailsComponent implements OnInit {
     'Good Status',
     'Bad Status'
   ];
+  newAffiliatedCompanies = [];
+  newCompetitors = [];
+  itemDeleted: boolean = false;
+  newCeo: any;
 
   constructor(private route: ActivatedRoute, private companyService: CompanyDetailsService, private _formBuilder: FormBuilder, private location: Location) { }
 
@@ -107,8 +111,20 @@ export class SingleCompanyDetailsComponent implements OnInit {
           industry: [this.industryOptions[industryIndex], Validators.required],
           totalEmployees: [this.totalEmployeesOptions[totalEmployeeIndex], Validators.required],
           annualRevenue: [this.company.annualRevenue, Validators.required],
-          status: [this.statusOptions[statusIndex], Validators.required]
+          status: [this.statusOptions[statusIndex], Validators.required],
+          affiliated_companies: [null],
+          first_competitor: [null],
+          second_competitor: [null],
+          third_competitor: [null],
+          competitors: [null],
+          ceo_name: [(this.company.company_ceos.first_name + " " +this.company.company_ceos.last_name)],
+          ceo_title: [this.company.company_ceos.title],
+          company_ceos: [null],
+          stock_symbol: [this.company.stock_symbol],
         });
+        this.newAffiliatedCompanies = this.company.affiliated_companies; 
+        this.newCompetitors = this.company.competitors;
+        this.newCeo = this.company.company_ceos;
       }
     );
   }
@@ -124,16 +140,74 @@ export class SingleCompanyDetailsComponent implements OnInit {
   }
 
   showSubmitButton() {
-    return (this.companyForm.touched);
+    return (this.companyForm.touched || this.itemDeleted);
   }
 
   onSubmit() {
+    this.updateCEO();
     var submitData = this.companyForm.value;
+    submitData.affiliated_companies = this.newAffiliatedCompanies;
+    submitData.competitors = this.newCompetitors;
+    submitData.company_ceos = this.newCeo;
 
     const req = this.companyService.updateCompany(this.id, submitData);
     req.subscribe();
-    req.subscribe(data => console.log(data));
+    req.subscribe();
 
     location.reload();
+  }
+
+  addAffiliatedCompany(company: string) {
+    if (!company) return;
+    console.log(company);
+    (<HTMLInputElement>document.getElementById("input-affiliated-companies")).value= "";
+    this.newAffiliatedCompanies.push(company);
+  }
+
+  removeAffiliatedCompany(company: string) {
+    var index = this.newAffiliatedCompanies.indexOf(company, 0);
+    if (index > -1) {
+      this.newAffiliatedCompanies.splice(index, 1);
+      this.itemDeleted = true;
+    }
+  }
+
+  addCompetitor(company: string) {
+    if (!company) return;
+    console.log(company);
+    this.newCompetitors.push(company);
+  }
+
+  removeCompetitor(company: string) {
+    var index = this.newCompetitors.indexOf(company, 0);
+    if (index > -1) {
+      this.newCompetitors.splice(index, 1);
+      this.itemDeleted = true;
+    }
+  }
+
+  updateCompetitor(old: string, n: string) {
+    if(!n) {
+      this.removeCompetitor(old);
+      return
+    }
+    var index = this.newCompetitors.indexOf(old, 0);
+    this.newCompetitors[index] = n;
+  }
+
+  updateCEO() {
+    if (this.companyForm.controls['ceo_title'].touched) this.newCeo.title = this.companyForm.value.ceo_title;
+    if (this.companyForm.controls['ceo_name'].touched) {
+      var name_splitted = this.companyForm.value.ceo_name.split(' ');
+      this.newCeo.first_name = name_splitted[0];
+      this.newCeo.last_name = name_splitted[1];
+    }
+    const req = this.companyService.updateCEO(this.newCeo._id, this.newCeo);
+    req.subscribe();
+    req.subscribe();
+  }
+
+  resetForm() {
+    this.companyForm.reset();
   }
 }

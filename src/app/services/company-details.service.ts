@@ -35,4 +35,16 @@ export class CompanyDetailsService {
     // } 
     return this.http.put(url, data, httpOptions);
   }
+
+  updateCEO(id: string, data: JSON) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    var url: string = ("http://localhost:3030/company/ceo/" + id);
+    console.log(url);
+    console.log(data);
+    return this.http.put(url, data, httpOptions);
+  }
 }

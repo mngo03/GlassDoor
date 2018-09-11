@@ -1,6 +1,8 @@
 <div class="container" *ngIf="company">
-  <h2>Basic Information</h2>
   <form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+
+    <h2>Basic Information</h2>
+
     <div class="form-row">
       <div class="col form-group">
         <label>Website</label>
@@ -64,6 +66,84 @@
         </select>
         <div class="alert alert-danger" *ngIf="!companyForm.controls['industry'].valid  && companyForm.controls['industry'].touched">Enter valid email</div>
     </div>
-    <button type="submit" class="btn btn-primary" *ngIf="showSubmitButton()">Submit</button>
+
+    <h2>Affiliated Companies</h2>
+
+    <div class="card medium" *ngFor="let company of newAffiliatedCompanies">
+        <div class="card-body" (click)="removeAffiliatedCompany(company)">
+          {{ company }}
+        </div>
+    </div>
+    <div class="form-group medium">
+        <input type="text" class="form-control" formControlName="affiliated_companies" id="input-affiliated-companies">
+        <label class="details" (click)="addAffiliatedCompany(companyForm.value.affiliated_companies)">+ Add Another Company</label>
+    </div>
+
+    <h2>Verified Details</h2>
+    <h6>All changes in this section must be verified by Glassdoor.</h6>
+
+    <h6><strong>Competitors</strong></h6>
+    <div class="form-group" *ngIf="newCompetitors[0] else competitor_1">
+        <div class="form-group">
+            <input type="text" class="form-control competitor_box" formControlName="first_competitor" id="input-first_competitor" value={{newCompetitors[0]}}>
+            <label class="details" (click)="updateCompetitor(newCompetitors[0], companyForm.value.first_competitor)">+ Update Competitor</label>
+        </div>
+    </div>
+
+    <div class="form-group" *ngIf="newCompetitors[1] else competitor_2">
+        <div class="form-group">
+            <input type="text" class="form-control competitor_box" formControlName="second_competitor" id="input-second_competitor" value={{newCompetitors[1]}}>
+            <label class="details" (click)="updateCompetitor(newCompetitors[1], companyForm.value.second_competitor)">+ Update Competitor</label>
+        </div>
+    </div>
+
+    <div class="form-group" *ngIf="newCompetitors[2] else competitor_3">
+        <div class="form-group">
+            <input type="text" class="form-control competitor_box" formControlName="third_competitor" id="input-third_competitor" value={{newCompetitors[2]}}>
+            <label class="details" (click)="updateCompetitor(newCompetitors[2], companyForm.value.third_competitor)">+ Update Competitor</label>
+        </div>
+    </div>
+
+    <h6><strong>Stock Symbol</strong></h6>
+    <div class="form-group">
+        <input type="text" class="form-control" formControlName="stock_symbol">
+    </div>
+
+    <h2>Company Leader</h2>
+
+    <h6><strong>CEO Name</strong></h6>
+    <div class="form-group">
+        <input type="text" class="form-control" formControlName="ceo_name">
+    </div>
+    <h6><strong>CEO Title</strong></h6>
+    <div class="form-group">
+        <input type="text" class="form-control" formControlName="ceo_title">
+    </div>
+
+    <div class="d-flex flex-row-reverse" *ngIf="showSubmitButton()">
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </div>
+
+    <ng-template #competitor_1>
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="first_competitor" id="input-first_competitor" value="">
+            <label class="details" (click)="addCompetitor(companyForm.value.first_competitor)">+ Add Competitor</label>
+        </div>
+    </ng-template>
+    
+    <ng-template #competitor_2>
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="second_competitor" id="input-second_competitor" value="">
+            <label class="details" (click)="addCompetitor(companyForm.value.second_competitor)">+ Add Competitor</label>
+        </div>
+    </ng-template>
+    
+    <ng-template #competitor_3>
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="third_competitor" id="input-third_competitor" value="">
+            <label class="details" (click)="addCompetitor(companyForm.value.third_competitor)">+ Add Competitor</label>
+        </div>
+    </ng-template>
   </form>
 </div> 
+
