@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    background-color: lightgray;
+    background-color: #e5e5e5;
 }
 
 .navbar {
@@ -17,4 +17,10 @@ body {
     top: 0px;
     width: 100%;
     z-index: 10;
+}
+
+.details {
+    color: lightgray;
+    font-size: 15px;
+    cursor: pointer;
 }
