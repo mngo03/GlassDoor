@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-global navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-global navbar-fixed-top" data-spy="affix">
   <div class="container-fluid">
     <div class="navbar-header d-flex flex-row">
       <a class="navbar-brand" href="#">GlassDoor</a>
@@ -19,7 +19,7 @@
   </div>
 </nav>
 <nav class="navbar-primary" id="navbar-main" [ngSwitch]="activePage">
-  <ul  *ngSwitchCase="'home'"class="navbar-primary-menu">
+  <ul  *ngSwitchCase="'home'"class="navbar-primary-menu"  data-spy="affix">
   <li>
     <a a class="nav-link" routerLink="/company_details"><span class="glyphicon glyphicon-list-alt"></span><span class="nav-label">Company Details</span></a>
     <a href="#"><span class="glyphicon glyphicon-envelope"></span><span class="nav-label">Profile</span></a>
@@ -28,7 +28,7 @@
     <a href="#"><span class="glyphicon glyphicon-calendar"></span><span class="nav-label">Monitor</span></a>
   </li>
 </ul>
-<ul  *ngSwitchCase="'company-details'"class="navbar-primary-menu">
+<ul  *ngSwitchCase="'company-details'"class="navbar-primary-menu"  data-spy="affix" data-offset-top="100">
   <div class="navbar-section-container">
       <div class="navbar-element-title">Basic Info</div>
       <li>
