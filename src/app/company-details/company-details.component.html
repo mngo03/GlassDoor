@@ -4,11 +4,13 @@
       <th>Name</th>
       <th>About</th>
       <th>Locations</th>
+      <th>Benefits</th>
     </thead>
     <tr *ngFor="let company of companies">
       <td><a [routerLink]="[company._id]">{{ company._id }}</a></td>
       <td>{{ company.name }}</td>
       <td><a [routerLink]="['description', company._id]">Click here</a></td>
       <td><a [routerLink]="['locations', company._id]">Click here</a></td>
+      <td><a [routerLink]="['benefits', company._id]">Click here</a></td>
     </tr>
   </table>

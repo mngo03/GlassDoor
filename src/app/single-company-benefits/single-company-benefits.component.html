@@ -1,0 +1,45 @@
+<div class="container bg-white">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <h2>Benefits</h2>
+      <div class="d-flex flex-row">
+          <h5>Benefits Offered in</h5>
+          <select class="form-control" formControlName="countries">
+              <option *ngFor="let country of country_list" [ngValue]="country">{{ country }}</option>
+          </select>
+      </div>
+      <div class="d-flex flex-column">
+          <label formArrayName="benefits_list"  class="d-flex flex-row" *ngFor="let benefit of form.controls.benefits_list.controls; let i = index">
+              <input type="checkbox" [formControlName]="i">
+              <div class="container-checkbox-info">
+                  <h6>{{benefits_list[i].title}}</h6>
+                  <div class="description" data-toggle="modal" data-target="#editDescriptionModal" (click)="triggerEdit(i)">{{benefits_list[i].description}}</div>
+              </div>
+          </label>
+      </div>
+      <div class="d-flex flex-row-reverse">
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="editDescriptionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Edit Description</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <h6>Provide a brief description of your company's</h6>
+                  <textarea  ng-model="editDescription" id="input-benefit-description" rows="10" cols="65"></textarea>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveEditedDescription()">Save changes</button>
+              </div>
+            </div>
+          </div>
+      </div>
+  </form>
+</div>

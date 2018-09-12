@@ -47,9 +47,10 @@
                 <div class="alert alert-danger" *ngIf="!companyForm.controls['zip_code'].valid  && companyForm.controls['zip_code'].touched">Enter valid address</div>
               </div>
           </div>
+          <h6>This update will be reflected on your company profile within 2 business days</h6>
           
           <div class="d-flex flex-row-reverse" *ngIf="showSubmitButton()">
-              <button type="submit" class="btn btn-primary">Save Changes</button>
+              <button type="submit" class="btn btn-primary">Update</button>
           </div>
         </form>
     </div> 
