@@ -1,0 +1,29 @@
+form{
+    width: 50%;
+    text-align: left;
+    font-size:10px;
+}
+input{
+    width: 30%;
+    display: inline;
+}
+
+.accounts{
+    border: 1px solid black;
+}
+
+button, .form{
+    display: inline;
+    
+}
+.name{
+    font-size:100%;;
+}
+button{
+    border:none;
+    background: none;
+    font-size:10px;
+}
+.text,.links{
+    font-size:10px;
+}

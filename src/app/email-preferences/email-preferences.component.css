@@ -1,0 +1,18 @@
+.preferences{
+    border:  grey;
+    
+}
+.dropdown, .radioButton{
+    display: inline-block;
+    padding: 12px 16px;
+}
+
+.reset,.manage{
+    border: none;
+    background: none;
+}
+.update{
+    background-color: blue;
+    color:white;
+
+}

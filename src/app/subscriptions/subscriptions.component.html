@@ -1,0 +1,42 @@
+<div class='currentPlan'>
+  <h6 class='current'>CURRENT PLAN</h6>
+  <p><b>4 Job Slots</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $299/month</p>
+  <h6 class='bill'>Next Billing Date: August 7,2018</h6>
+</div>
+<div class='newPlans'>
+    <div class='form-group'>
+      <table class='table'>
+        <tr>
+          <th><h2>Available Plans</h2></th>
+          <th></th>
+        </tr>
+        <tr>
+          <td>
+            <input type ='radio' class='top' name='twoSlots' value=''><b>2 Job Slots</b>($99 per slot)
+            <br><br>
+            <input type ='radio' class='middle' name='threeSlots' value=''><b>3 Job Slots</b>($83 per slot)
+            <br><br>
+            <input type ='radio' class='bottom' name='fiveSlots' value=''><b>5 Job Slots</b>($69 per slot)
+          </td>
+          <td>
+            <b>$199</b>/month <br><br>
+            <b>$249</b>/month <br><br>
+            <b>$349</b>/month
+          </td>
+        </tr>
+      </table>
+      
+    </div>
+</div>
+<h2>Payment Method</h2>
+<div class='payment'>
+  <input type='radio' class='payment' name='current' value='visa'><b>VISA   **** **** **** 0030</b>   Exp:7/2022
+</div>
+<button class='addPaymentButton' (click)='addPayment()'>+Add new Payment Method</button>
+<p> By placing this order I agree to Glassdoor's Self Serve Products Terms. 
+Terms of Use, and Privacy Policy. Your subscription will automatically renew at the end of eah period. To cancel
+anytime, to to your Settings.
+</p>
+<button class='cancelButton' (click)='cancelAction()'>Cancel</button>
+<button class='updateButton' (click)='Update()'>Update Subscription</button>
+

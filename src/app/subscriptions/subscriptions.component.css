@@ -1,0 +1,33 @@
+.currentPlan{
+    border: 1px solid black;
+}
+.current{
+    background-color: lightgrey;
+    width: 10%;
+}
+.newPlans{
+    border: 1px solid #000000    
+}
+.bill{
+    color:lightgrey;
+}
+.payment{
+    width:30%;
+    border: 2px solid #000627 
+}
+.addPaymentButton{
+    display: inline;
+    border: none;
+    background: none;
+}
+.cancelButton{
+
+    display: inline;
+    background: none;
+}
+.updateButton{
+    background-color: grey; 
+    color: white; 
+    margin-left:5em;
+    text-align: center; 
+}

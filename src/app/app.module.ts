@@ -6,6 +6,7 @@ import { CompanyDetailsComponent } from './company-details/company-details.compo
 import { RegistrationComponent } from './registration/registration.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { JobsRecruitingComponent } from './jobs-recruiting/jobs-recruiting.component';
+import { UserSettingsComponent } from './user-settings/user-settings.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { JobsRecruitingComponent } from './jobs-recruiting/jobs-recruiting.compo
     CompanyDetailsComponent,
     RegistrationComponent,
     ReviewsComponent,
-    JobsRecruitingComponent
+    JobsRecruitingComponent,
+    UserSettingsComponent
   ],
   imports: [
     BrowserModule

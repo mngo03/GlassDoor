@@ -1,0 +1,39 @@
+<br><br><br>
+
+<h3>Add New Card</h3>
+<div class='credit'>
+<h4 class='head'><b>Credit Card Information</b></h4>
+&nbsp;&nbsp;&nbsp;
+<p class='smallHead'>Your information is secure</p>
+  <form [formGroup]='creditCard'>
+    <div class='cardName'>
+      <label class ='name'>Full Name on Card</label>
+      <input type= 'text' class='form-control' formControlName='fullName'>
+      &nbsp;&nbsp;&nbsp;
+      <div class="alert alert-danger" *ngIf="!creditCard.controls['fullName'].valid && creditCard.controls['fullName'].touched">Enter full Name</div>    
+    </div>
+    <br>
+    <div class='cardNumber'>
+      <label class='name'>Credit Card Number</label>
+      <input type='text' class='form-control' formControlName='creditNumber'/>
+      <div class="alert alert-danger" *ngIf="!creditCard.controls['creditNumber'].valid && creditCard.controls['creditNumber'].touched">Enter valid card number</div>
+    </div><br>
+    <div class='expiration'>
+      <label class='name'>Expiration Date</label>
+      
+      <input type='text' class='form-cotnrol' formControlName='expDate'>
+      <div class="alert alert-danger" *ngIf="!creditCard.controls['expDate'].valid && creditCard.controls['expDate'].touched">Enter the Expiration Date</div>
+    </div>
+    &nbsp;&nbsp;&nbsp;
+    <div class='num'>
+      <label class='name'>CVC</label>
+      <input type ='name' class= 'form-control' formControlName='cvc'>
+      <div class="alert alert-danger" *ngIf="!creditCard.controls['cvc'].valid && creditCard.controls['cvc'].touched">Enter CVC number </div>    
+    </div>
+  </form>
+  <input type='checkbox' name='default' value='defaultPayment'>Set as default payment
+  <p class= 'secure'>All information is encrypted and transmitted securelyusing SSL (Secure Socket Layer Protocol)&nbsp;&nbsp;</p>
+</div>
+<br>
+<button class='button' (click)='addPayment()'>Add This Payment Method</button><br>
+<button class='cancel' (click)='cancelAction()'>Cancel</button>

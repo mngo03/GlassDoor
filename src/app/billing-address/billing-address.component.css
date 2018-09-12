@@ -1,0 +1,22 @@
+div {
+    display: inline-block;
+}
+
+div label {
+    display: block;
+}
+input{
+    width:110%;
+}
+.form-control{
+    border: 1px solid #000000
+}
+.form-control-address{
+    width:265%;
+}
+.bill{
+    font-size: 12px
+}
+.input{
+    font-size: 10px;
+}
