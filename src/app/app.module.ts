@@ -15,12 +15,14 @@ import { SingleCompanyDetailsComponent } from './single-company-details/single-c
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { SingleCompanyDescriptionComponent } from './single-company-description/single-company-description.component';
+import { SingleCompanyLocationsComponent } from './single-company-locations/single-company-locations.component';
 
 //Add your routes here
 const routes: Routes = [
   {path: 'company_details', component: CompanyDetailsComponent},
   {path: 'company_details/:id', component: SingleCompanyDetailsComponent},
-  {path: 'company_details/description/:id', component: SingleCompanyDescriptionComponent}
+  {path: 'company_details/description/:id', component: SingleCompanyDescriptionComponent},
+  {path: 'company_details/locations/:id', component: SingleCompanyLocationsComponent}
 ];
 
 @NgModule({
@@ -32,7 +34,8 @@ const routes: Routes = [
     JobsRecruitingComponent,
     RoutingComponentComponent,
     SingleCompanyDetailsComponent,
-    SingleCompanyDescriptionComponent
+    SingleCompanyDescriptionComponent,
+    SingleCompanyLocationsComponent
   ],
   imports: [
     BrowserModule,

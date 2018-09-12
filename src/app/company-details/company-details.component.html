@@ -1,12 +1,14 @@
 <table class="table table-hover">
     <thead>
-      <th>ID</th>
+      <th>ID (Click for Details)</th>
       <th>Name</th>
-      <th>Affiliated Companies</th>
+      <th>About</th>
+      <th>Locations</th>
     </thead>
     <tr *ngFor="let company of companies">
       <td><a [routerLink]="[company._id]">{{ company._id }}</a></td>
       <td>{{ company.name }}</td>
       <td><a [routerLink]="['description', company._id]">Click here</a></td>
+      <td><a [routerLink]="['locations', company._id]">Click here</a></td>
     </tr>
   </table>

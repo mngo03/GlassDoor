@@ -47,4 +47,26 @@ export class CompanyDetailsService {
     console.log(data);
     return this.http.put(url, data, httpOptions);
   }
+
+  postLocation(data: JSON) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    var url = "http://localhost:3030/company/location/";
+    console.log(data);
+    return this.http.post(url, data, httpOptions);
+  }
+
+  updateLocation(companyId: string, data: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    console.log(data);
+    var url: string = ("http://localhost:3030/company/company/" + companyId);
+    return this.http.put(url, data, httpOptions);
+  }
 }
