@@ -26,29 +26,6 @@ import { SingleCompanyDetailsComponent } from './single-company-details/single-c
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { SingleCompanyDescriptionComponent } from './single-company-description/single-company-description.component';
-
-//Add your routes here
-const routes: Routes = [
-  {path: 'company_details', component: CompanyDetailsComponent},
-  {path: 'company_details/:id', component: SingleCompanyDetailsComponent},
-  {path: 'company_details/description/:id', component: SingleCompanyDescriptionComponent},
-  {path:'account_settings', component:BasicInfoComponent},
-  {path:'password_reset', component:PasswordComponent},
-  {path: 'account_info', component:UserSettingsComponent},
-  {path:'notifications',component:EmailsAlertsComponent},
-  {path:'payment_settings', component:BillingAddressComponent},
-  {path:'subscriptions', component:CurrentSubscriptionPlanComponent},
-  {path:'add_subscription',component:SubscriptionsComponent}
-];  
-
-import { RouterModule, Routes } from '@angular/router';
-import { RoutingComponentComponent } from './routing-component/routing-component.component';
-
-import { HttpClientModule } from '@angular/common/http';
-import { SingleCompanyDetailsComponent } from './single-company-details/single-company-details.component';
-
-import { ReactiveFormsModule } from '@angular/forms';
-import { SingleCompanyDescriptionComponent } from './single-company-description/single-company-description.component';
 import { SingleCompanyLocationsComponent } from './single-company-locations/single-company-locations.component';
 import { SingleCompanyBenefitsComponent } from './single-company-benefits/single-company-benefits.component';
 
@@ -58,8 +35,18 @@ const routes: Routes = [
   {path: 'company_details/:id', component: SingleCompanyDetailsComponent},
   {path: 'company_details/description/:id', component: SingleCompanyDescriptionComponent},
   {path: 'company_details/locations/:id', component: SingleCompanyLocationsComponent},
-  {path: 'company_details/benefits/:id', component: SingleCompanyBenefitsComponent}
-];
+  {path: 'company_details/benefits/:id', component: SingleCompanyBenefitsComponent},
+  {path:'account_settings', component:BasicInfoComponent},
+  {path:'password_reset', component:PasswordComponent},
+  {path: 'account_info', component:UserSettingsComponent},
+  {path:'notifications',component:EmailsAlertsComponent},
+  {path:'payment_settings', component:BillingAddressComponent},
+  {path:'subscriptions', component:CurrentSubscriptionPlanComponent},
+  {path:'add_subscription',component:SubscriptionsComponent}
+];  
+
+
+
 
 @NgModule({
   declarations: [
@@ -68,18 +55,14 @@ const routes: Routes = [
     RegistrationComponent,
     ReviewsComponent,
     JobsRecruitingComponent,
-<<<<<<< HEAD
-<<<<<<< HEAD
-    UserSettingsComponent
-=======
+    UserSettingsComponent,
+
     RoutingComponentComponent,
     SingleCompanyDetailsComponent,
     SingleCompanyDescriptionComponent,
     SingleCompanyLocationsComponent,
-    SingleCompanyBenefitsComponent
->>>>>>> f20d35bbf976080e59b9a5eacdf3fb31a4a3f493
-=======
-    UserSettingsComponent,
+    SingleCompanyBenefitsComponent,
+    
     PasswordComponent,
     PaymentInfoComponent,
     SubscriptionsComponent,
@@ -96,7 +79,7 @@ const routes: Routes = [
     SingleCompanyDetailsComponent,
     SingleCompanyDescriptionComponent
 
->>>>>>> Satya
+
   ],
   imports: [
     BrowserModule,
