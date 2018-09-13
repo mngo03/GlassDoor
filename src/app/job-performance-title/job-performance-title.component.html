@@ -1,0 +1,87 @@
+<div class="container-fluid" style="border:1px solid black;">
+<h3 class="text-left">Jobs Performance by Title</h3>
+<hr />
+<div class="nav-item dropdown">
+    <button class="nav-link dropdown-toggle" type="button" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Today
+    </button>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">This month</a>
+        <a class="dropdown-item" href="#">Last month</a>
+        <a class="dropdown-item" href="#"></a>
+        <a class="dropdown-item" href="#"></a>
+        <a class="dropdown-item" href="#">Last 3 months</a>
+        <a class="dropdown-item" href="#">Last 6 months</a>
+        <a class="dropdown-item" href="#">Last 12 months</a>
+        <a class="dropdown-item" href="#"></a>
+        <a class="dropdown-item" href="#"></a>
+        <a class="dropdown-item" href="#">This Year</a>
+        <a class="dropdown-item" href="#">Last Year</a>
+        <a class="dropdown-item" href="#"></a>
+        <a class="dropdown-item" href="#"></a>
+        <a class="dropdown-item" href="#">Custom</a>
+    </div>
+  </div>
+  <p>
+
+
+  </p>
+</div>
+  <p>
+
+
+
+  </p>
+
+<div class="container-fluid" style="border:1px solid black;">
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="nav-item dropdown">
+                <button class="nav-link dropdown-toggle" type="button" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    All Products
+                </button>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">All Products</a>
+                    <a class="dropdown-item" href="#"></a>
+                    <a class="dropdown-item" href="#"></a>
+                    <a class="dropdown-item" href="#">Job Slots</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-1">
+            <button type="button">Filter</button>
+        </div>
+    </div>
+  <div ng-app="myApp" ng-controller="myCtrl">
+      <table align="center">
+          <tr>
+            <th>Rank</th>
+            <th>Job Title</th>
+            <th>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Clicks
+                    </label>
+                </div>
+            </th>
+            <th>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Apply Starts
+                    </label>
+                </div>
+            </th>
+          </tr>
+          <tr *ngFor="let p of persons">
+            <td>{{p.id}}</td>
+            <td *ngIf="p.gender=='M'">Mr. {{p.name}}</td>
+            <td *ngIf="p.gender=='F'">Mrs. {{p.name}}</td>
+            <td *ngIf="p.gender=='M'" [ngStyle]="{color:'blue'}">{{p.gender}}</td>
+            <td *ngIf="p.gender=='F'" [ngStyle]="{color:'red'}">{{p.gender}}</td>
+          </tr>
+      </table>
+      </div>
+</div>
