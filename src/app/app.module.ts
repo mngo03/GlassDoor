@@ -17,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SingleCompanyDescriptionComponent } from './single-company-description/single-company-description.component';
 import { SingleCompanyLocationsComponent } from './single-company-locations/single-company-locations.component';
 import { SingleCompanyBenefitsComponent } from './single-company-benefits/single-company-benefits.component';
+import { SingleCompanyAwardsComponent } from './single-company-awards/single-company-awards.component';
 
 //Add your routes here
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: 'company_details/:id', component: SingleCompanyDetailsComponent},
   {path: 'company_details/description/:id', component: SingleCompanyDescriptionComponent},
   {path: 'company_details/locations/:id', component: SingleCompanyLocationsComponent},
-  {path: 'company_details/benefits/:id', component: SingleCompanyBenefitsComponent}
+  {path: 'company_details/benefits/:id', component: SingleCompanyBenefitsComponent},
+  {path: 'company_details/awards/:id', component: SingleCompanyAwardsComponent}
 ];
 
 @NgModule({
@@ -38,7 +40,8 @@ const routes: Routes = [
     SingleCompanyDetailsComponent,
     SingleCompanyDescriptionComponent,
     SingleCompanyLocationsComponent,
-    SingleCompanyBenefitsComponent
+    SingleCompanyBenefitsComponent,
+    SingleCompanyAwardsComponent
   ],
   imports: [
     BrowserModule,

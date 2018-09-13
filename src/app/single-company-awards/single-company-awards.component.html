@@ -1,0 +1,63 @@
+<div class="bg-white" *ngIf="company">
+  <h2>Awards</h2>
+  <div class="d-flex flex-row justify-content-between">
+    <h6>Add awards to display on your company profile. Awards are displayed in chronological order on your company profile</h6>
+      <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAward">Add Award</button>
+
+  </div>
+  <div class="card" style="width: 100%;" *ngFor="let award of company.company_awards">
+    <div class="card-body">
+      <h5 class="card-title">{{ award.name }}</h5>
+      <p class="card-text">Given by {{ award.source }} in {{ award.year }}</p>
+      <a href="#" class="card-link">{{award.website}}</a>
+      <div class="details" (click)="removeAward(award._id)">Remove</div>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="addAward" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Add Award</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+                    <h6>Add an award or accolade</h6>
+                    <div class="form-group">
+                        <label>Name of Award</label>
+                        <input type="text" class="form-control" formControlName="name" id="input-award-name">
+                        <div class="alert alert-danger" *ngIf="!companyForm.controls['name'].valid  && companyForm.controls['name'].touched">Enter valid name</div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col form-group">
+                          <label>Award Source</label>
+                          <input type="text" class="form-control" formControlName="source" id="input-award-source">
+                          <div class="alert alert-danger" *ngIf="!companyForm.controls['source'].valid && companyForm.controls['source'].touched">Enter valid source</div>
+                        </div>
+                        <div class="col form-group">
+                          <select class="form-control" formControlName="year">
+                              <option *ngFor="let year of years_list" [ngValue]="year">{{ year }}</option>
+                          </select>
+                          <div class="alert alert-danger" *ngIf="!companyForm.controls['year'].valid  && companyForm.controls['year'].touched">Enter valid year</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Award Website</label>
+                        <input type="text" class="form-control" formControlName="website" id="input-award-website">
+                        <div class="alert alert-danger" *ngIf="!companyForm.controls['website'].valid  && companyForm.controls['website'].touched">Enter valid website</div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSubmit()">Save</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clearForm()">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
