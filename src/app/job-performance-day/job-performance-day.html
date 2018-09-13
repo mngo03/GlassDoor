@@ -1,0 +1,125 @@
+<head>
+    <style>
+        h6 {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<div class="container-fluid" style="border:1px solid black;">
+    <h3 class="text-left">Jobs Performance by Day</h3>
+    <hr />
+    <div class="row">
+      <div class="col-sm-2 pl-1">
+        <div class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" type="button" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Today
+            </button>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">This month</a>
+                <a class="dropdown-item" href="#">Last month</a>
+                <a class="dropdown-item" href="#"></a>
+                <a class="dropdown-item" href="#"></a>
+                <a class="dropdown-item" href="#">Last 3 months</a>
+                <a class="dropdown-item" href="#">Last 6 months</a>
+                <a class="dropdown-item" href="#">Last 12 months</a>
+                <a class="dropdown-item" href="#"></a>
+                <a class="dropdown-item" href="#"></a>
+                <a class="dropdown-item" href="#">This Year</a>
+                <a class="dropdown-item" href="#">Last Year</a>
+                <a class="dropdown-item" href="#"></a>
+                <a class="dropdown-item" href="#"></a>
+                <a class="dropdown-item" href="#">Custom</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2 pl-1">
+            <div class="nav-item dropdown">
+                <button class="nav-link dropdown-toggle" type="button" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    All Products
+                </button>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">All Products</a>
+                    <a class="dropdown-item" href="#"></a>
+                    <a class="dropdown-item" href="#"></a>
+                    <a class="dropdown-item" href="#">Job Slots</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1 pl-1">
+            <button type="button">Filter</button>
+        </div>
+    </div>
+      <p>
+    
+    
+      </p>
+</div>
+<p>
+
+
+
+</p>
+
+<div class="container-fluid" style="border:1px solid black;">
+    <h6>Sorry we don't have enough data to generate charts for the selected filters</h6>
+</div>
+<p>
+
+
+
+
+</p>
+
+<div class="container-fluid" style="border:1px solid black;">
+    <div class="row">
+          <div class="col-sm-1">
+                <p>Sort: </p>
+          </div>
+          <div class="col-sm-2">
+              <a href="#newest" ng-click="sort_newest()">Newest First</a>
+          </div>
+          <div class="col-sm-1">
+              <p> | </p>
+          </div>
+          <div class="col-sm-1">
+              <a href="#clicks" ng-click="sort_most_clicks()">Most Clicks</a>
+          </div>
+          <div class="col-sm-2 text-right">
+              <p class="text-sm-right">View by: Day</p>
+          </div>
+    </div>
+</div>
+
+<div>
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Impressions</th>
+        <th>Clicks</th>
+        <th>CTR</th>
+        <th>Apply Starts</th>
+        <th>Apply Start Rate</th>
+      </tr>
+      <tr ng-repeat="job in jobs">
+        <td>
+          {{job.date_posted}}
+        </td>
+        <td>
+          {{job.impressions}}
+        </td>
+        <td>
+          {{job.clicks}}
+        </td>
+        <td>
+          {{job.CTR}}
+        </td>
+        <td>
+          {{job.apply_starts}}
+        </td>
+        <td>
+          {{job.apply_start_rate}}
+        </td>
+      </tr>
+    </table>
+</div>
