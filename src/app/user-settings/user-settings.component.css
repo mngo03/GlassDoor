@@ -1,10 +1,10 @@
 form{
-    width: 50%;
+    width: 100%;
     text-align: left;
-    font-size:10px;
+    font-size:12;
 }
 input{
-    width: 30%;
+    width: 60%;
     display: inline;
 }
 
@@ -22,8 +22,8 @@ button, .form{
 button{
     border:none;
     background: none;
-    font-size:10px;
+    font-size:14px;
 }
 .text,.links{
-    font-size:10px;
+    font-size:14px;
 }

@@ -7,6 +7,39 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { JobsRecruitingComponent } from './jobs-recruiting/jobs-recruiting.component';
 import { UserSettingsComponent } from './user-settings/user-settings.component';
+import { PaymentInfoComponent } from './payment-info/payment-info.component';
+import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
+import { EmailsAlertsComponent } from './emails-alerts/emails-alerts.component';
+import { AccountInfoComponent } from './account-info/account-info.component';
+import { EmailPreferencesComponent } from './email-preferences/email-preferences.component';
+import { PasswordComponent } from './password/password.component';
+import { BasicInfoComponent } from './basic-info/basic-info.component';
+import { BillingAddressComponent } from './billing-address/billing-address.component';
+import { CreditCardInfoComponent } from './credit-card-info/credit-card-info.component';
+import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
+import { CloseAccountComponent } from './close-account/close-account.component';
+import { CurrentSubscriptionPlanComponent } from './current-subscription-plan/current-subscription-plan.component';
+import { RouterModule, Routes } from '@angular/router';
+import { RoutingComponentComponent } from './routing-component/routing-component.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SingleCompanyDetailsComponent } from './single-company-details/single-company-details.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { SingleCompanyDescriptionComponent } from './single-company-description/single-company-description.component';
+
+//Add your routes here
+const routes: Routes = [
+  {path: 'company_details', component: CompanyDetailsComponent},
+  {path: 'company_details/:id', component: SingleCompanyDetailsComponent},
+  {path: 'company_details/description/:id', component: SingleCompanyDescriptionComponent},
+  {path:'account_settings', component:BasicInfoComponent},
+  {path:'password_reset', component:PasswordComponent},
+  {path: 'account_info', component:UserSettingsComponent},
+  {path:'notifications',component:EmailsAlertsComponent},
+  {path:'payment_settings', component:BillingAddressComponent},
+  {path:'subscriptions', component:CurrentSubscriptionPlanComponent},
+  {path:'add_subscription',component:SubscriptionsComponent}
+];  
 
 import { RouterModule, Routes } from '@angular/router';
 import { RoutingComponentComponent } from './routing-component/routing-component.component';
@@ -36,6 +69,7 @@ const routes: Routes = [
     ReviewsComponent,
     JobsRecruitingComponent,
 <<<<<<< HEAD
+<<<<<<< HEAD
     UserSettingsComponent
 =======
     RoutingComponentComponent,
@@ -44,6 +78,25 @@ const routes: Routes = [
     SingleCompanyLocationsComponent,
     SingleCompanyBenefitsComponent
 >>>>>>> f20d35bbf976080e59b9a5eacdf3fb31a4a3f493
+=======
+    UserSettingsComponent,
+    PasswordComponent,
+    PaymentInfoComponent,
+    SubscriptionsComponent,
+    EmailPreferencesComponent,
+    EmailsAlertsComponent,
+    PaymentMethodsComponent,
+    BillingAddressComponent,
+    CreditCardInfoComponent,
+    CurrentSubscriptionPlanComponent,
+    SubscriptionsComponent,
+    BasicInfoComponent,
+    AccountInfoComponent,
+    RoutingComponentComponent,
+    SingleCompanyDetailsComponent,
+    SingleCompanyDescriptionComponent
+
+>>>>>>> Satya
   ],
   imports: [
     BrowserModule,

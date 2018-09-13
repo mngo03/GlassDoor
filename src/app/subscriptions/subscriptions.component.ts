@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class SubscriptionsComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) { }
-  
+pageName='new-subscriptions';
 availPlans:FormGroup;
 twoSlot:string='';
 threeSlot:string='';

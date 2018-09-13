@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./emails-alerts.component.css']
 })
 export class EmailsAlertsComponent implements OnInit {
-
+  pageName='email-alert';
   constructor() { }
 
   ngOnInit() {

@@ -47,6 +47,7 @@ export class CompanyDetailsService {
     console.log(data);
     return this.http.put(url, data, httpOptions);
   }
+<<<<<<< HEAD
 
   postLocation(data: JSON) {
     const httpOptions = {
@@ -91,4 +92,6 @@ export class CompanyDetailsService {
     var url: string = ("http://localhost:3030/company/company/" + companyId);
     return this.http.put(url, data, httpOptions);
   }
+=======
+>>>>>>> Satya
 }

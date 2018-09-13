@@ -13,11 +13,10 @@ export class UserSettingsComponent implements OnInit {
   email:string='';
   password:string='';
   newPassword:string='';
-
-
+  pageName='user-info';
 
   constructor(private formBuilder: FormBuilder) { }
-
+  
   ngOnInit() {
 
     this.emailForm=this.formBuilder.group({

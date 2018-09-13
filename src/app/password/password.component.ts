@@ -10,7 +10,7 @@ export class PasswordComponent implements OnInit {
   passwordReset:FormGroup;  
   password:string='';
   newPassword:string='';
-  
+  pageName='password-reset';
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
