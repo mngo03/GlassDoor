@@ -18,6 +18,7 @@ import { SingleCompanyDescriptionComponent } from './single-company-description/
 import { SingleCompanyLocationsComponent } from './single-company-locations/single-company-locations.component';
 import { SingleCompanyBenefitsComponent } from './single-company-benefits/single-company-benefits.component';
 import { SingleCompanyAwardsComponent } from './single-company-awards/single-company-awards.component';
+import { SingleCompanyUpdatesComponent } from './single-company-updates/single-company-updates.component';
 
 //Add your routes here
 const routes: Routes = [
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path: 'company_details/description/:id', component: SingleCompanyDescriptionComponent},
   {path: 'company_details/locations/:id', component: SingleCompanyLocationsComponent},
   {path: 'company_details/benefits/:id', component: SingleCompanyBenefitsComponent},
-  {path: 'company_details/awards/:id', component: SingleCompanyAwardsComponent}
+  {path: 'company_details/awards/:id', component: SingleCompanyAwardsComponent},
+  {path: 'company_details/updates/:id', component: SingleCompanyUpdatesComponent}
 ];
 
 @NgModule({
@@ -41,7 +43,8 @@ const routes: Routes = [
     SingleCompanyDescriptionComponent,
     SingleCompanyLocationsComponent,
     SingleCompanyBenefitsComponent,
-    SingleCompanyAwardsComponent
+    SingleCompanyAwardsComponent,
+    SingleCompanyUpdatesComponent
   ],
   imports: [
     BrowserModule,
