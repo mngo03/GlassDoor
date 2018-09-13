@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output} from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-
-
 @Component({
   selector: 'app-basic-info',
   templateUrl: './basic-info.component.html',
-  styleUrls: ['./basic-info.component.css']
+  styleUrls: ['./basic-info.component.css'],
+  
 })
 export class BasicInfoComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) { }
   
 
+  pageName='account-info';
   infoForm:FormGroup;
   firstName:string='';
   lastName:string='';

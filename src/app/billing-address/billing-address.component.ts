@@ -7,13 +7,13 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./billing-address.component.css']
 })
 export class BillingAddressComponent implements OnInit {
- 
+  pageName='billing-address';
   billingForm:FormGroup;  
   address:string='';
   country:string='';
   state:string='';
-  city:string=''
-
+  city:string=''  
+  zip:any;
   constructor(private formBuilder: FormBuilder) { }
   
   ngOnInit() {

@@ -1,0 +1,152 @@
+<div class="container bg-white" *ngIf="company">
+  <form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+
+    <h2>Basic Information</h2>
+
+    <div class="form-row">
+      <div class="col form-group">
+        <label>Website</label>
+        <input type="text" class="form-control" formControlName="website">
+        <div class="alert alert-danger" *ngIf="!companyForm.controls['website'].valid && companyForm.controls['website'].touched">Enter valid website</div>
+      </div>
+      <div class="col form-group">
+        <label>Total Employees</label>
+        <select class="form-control" formControlName="totalEmployees">
+            <option *ngFor="let option of totalEmployeesOptions" [ngValue]="option">{{ option }}</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="!companyForm.controls['totalEmployees'].valid  && companyForm.controls['totalEmployees'].touched">Enter valid option</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label>HQ City</label>
+        <input type="text" class="form-control" formControlName="hqCity">
+        <div class="alert alert-danger" *ngIf="!companyForm.controls['hqCity'].valid && companyForm.controls['hqCity'].touched">Enter valid HQ City</div>
+      </div>
+      <div class="col form-group">
+        <label>Annual Revenue</label>
+        <input type="text" class="form-control" formControlName="annualRevenue">
+        <div class="alert alert-danger" *ngIf="!companyForm.controls['annualRevenue'].valid  && companyForm.controls['annualRevenue'].touched">Enter valid zipcode</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label>Year Founded</label>
+        <select class="form-control" formControlName="yearFounded">
+          <option *ngFor="let year of yearFoundedOptions" [ngValue]="year">{{ year }}</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="!companyForm.controls['yearFounded'].valid && companyForm.controls['yearFounded'].touched">Enter valid HQ City</div>
+      </div>
+      <div class="col form-group">
+        <label>Company Status</label>
+        <select class="form-control" formControlName="status">
+            <option *ngFor="let status of statusOptions" [ngValue]="status">{{ status }}</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="!companyForm.controls['status'].valid  && companyForm.controls['status'].touched">Enter valid zipcode</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Company Type</label>
+      <select class="form-control" formControlName="type">
+          <option *ngFor="let type of comapnyTypeOptions" [ngValue]="type">{{ type }}</option>
+      </select>
+      <div class="alert alert-danger" *ngIf="!companyForm.controls['type'].valid  && companyForm.controls['type'].touched">Enter valid email</div>
+    </div>
+    <div class="form-group">
+      <label>Sector</label>
+      <select class="form-control" formControlName="sector">
+          <option *ngFor="let sector of sectorOptions" [ngValue]="sector">{{ sector }}</option>
+      </select>
+      <div class="alert alert-danger" *ngIf="!companyForm.controls['sector'].valid  && companyForm.controls['sector'].touched">Enter valid email</div>
+    </div>
+    <div class="form-group">
+        <label>Industry</label>
+        <select class="form-control" formControlName="industry">
+            <option *ngFor="let industry of industryOptions" [ngValue]="industry">{{ industry }}</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="!companyForm.controls['industry'].valid  && companyForm.controls['industry'].touched">Enter valid email</div>
+    </div>
+
+    <h2>Affiliated Companies</h2>
+
+    <div class="card medium" *ngFor="let company of newAffiliatedCompanies">
+        <div class="card-body" (click)="removeAffiliatedCompany(company)">
+          {{ company }}
+        </div>
+    </div>
+    <div class="form-group medium">
+        <input type="text" class="form-control" formControlName="affiliated_companies" id="input-affiliated-companies">
+        <label class="details" (click)="addAffiliatedCompany(companyForm.value.affiliated_companies)">+ Add Another Company</label>
+    </div>
+
+    <h2>Verified Details</h2>
+    <h6>All changes in this section must be verified by Glassdoor.</h6>
+
+    <h6><strong>Competitors</strong></h6>
+    <div class="form-group" *ngIf="newCompetitors[0] else competitor_1">
+        <div class="form-group">
+            <input type="text" class="form-control competitor_box" formControlName="first_competitor" id="input-first_competitor" value={{newCompetitors[0]}}>
+            <label class="details" (click)="updateCompetitor(newCompetitors[0], companyForm.value.first_competitor)">+ Update Competitor</label>
+        </div>
+    </div>
+
+    <div class="form-group" *ngIf="newCompetitors[1] else competitor_2">
+        <div class="form-group">
+            <input type="text" class="form-control competitor_box" formControlName="second_competitor" id="input-second_competitor" value={{newCompetitors[1]}}>
+            <label class="details" (click)="updateCompetitor(newCompetitors[1], companyForm.value.second_competitor)">+ Update Competitor</label>
+        </div>
+    </div>
+
+    <div class="form-group" *ngIf="newCompetitors[2] else competitor_3">
+        <div class="form-group">
+            <input type="text" class="form-control competitor_box" formControlName="third_competitor" id="input-third_competitor" value={{newCompetitors[2]}}>
+            <label class="details" (click)="updateCompetitor(newCompetitors[2], companyForm.value.third_competitor)">+ Update Competitor</label>
+        </div>
+    </div>
+
+    <h6><strong>Stock Symbol</strong></h6>
+    <div class="form-group">
+        <input type="text" class="form-control" formControlName="stock_symbol">
+    </div>
+
+    <h2>Company Leader</h2>
+
+    <h6><strong>CEO Name</strong></h6>
+    <div class="form-group">
+        <input type="text" class="form-control" formControlName="ceo_name">
+    </div>
+    <h6><strong>CEO Title</strong></h6>
+    <div class="form-group">
+        <input type="text" class="form-control" formControlName="ceo_title">
+    </div>
+
+    <h6>Do you need to add regional leaders for different countries?</h6>
+    <h6>Switch to Global Leader View</h6>
+    
+    <div class="d-flex flex-row-reverse" *ngIf="showSubmitButton()">
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </div>
+
+    <ng-template #competitor_1>
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="first_competitor" id="input-first_competitor" value="">
+            <label class="details" (click)="addCompetitor(companyForm.value.first_competitor)">+ Add Competitor</label>
+        </div>
+    </ng-template>
+    
+    <ng-template #competitor_2>
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="second_competitor" id="input-second_competitor" value="">
+            <label class="details" (click)="addCompetitor(companyForm.value.second_competitor)">+ Add Competitor</label>
+        </div>
+    </ng-template>
+    
+    <ng-template #competitor_3>
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="third_competitor" id="input-third_competitor" value="">
+            <label class="details" (click)="addCompetitor(companyForm.value.third_competitor)">+ Add Competitor</label>
+        </div>
+    </ng-template>
+  </form>
+</div> 
+
