@@ -1,0 +1,67 @@
+<head>
+    <style>
+        .left {
+            float: left;
+            width: 300px;        
+            padding: 10px;
+        }
+    </style>
+    <style>
+        .right {
+            float: right;
+            width: 300px;        
+            padding: 10px;
+        }
+    </style>
+    <style>
+        tr {
+          border-bottom: 1px solid black;
+          border-top: 1px solid black;
+          border-collapse: collapse;
+        }
+    </style>
+  }​
+</head>
+
+<div class="container-fluid" style="border:1px solid black;">
+  <div class="row">
+    <div class="col">
+      <p class="left">Slotted Jobs</p>
+    </div>
+    <div class="col">
+        <div class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" type="button" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Newest First
+            </button>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Newest First</a>
+                <a class="dropdown-item" href="#"></a>
+                <a class="dropdown-item" href="#"></a>
+                <a class="dropdown-item" href="#">Job Title A-Z</a>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col">
+         <table>
+           <tr>
+             <th>Job</th>
+             <th>Days Sponsored</th>
+           </tr>
+           <tr ng-repeat="job in jobs">
+             <td>
+               {{job.name}}
+               {{job.company}} {{job.location}}
+             </td>
+             <td>
+               {{job.days_sponsored}}
+             </td>
+           </tr>
+         </table>
+       </div>
+    </div>
+</div>
+
+
+           
