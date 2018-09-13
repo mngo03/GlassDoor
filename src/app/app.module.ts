@@ -8,6 +8,26 @@ import { ReviewsComponent } from './reviews/reviews.component';
 import { JobsRecruitingComponent } from './jobs-recruiting/jobs-recruiting.component';
 import { UserSettingsComponent } from './user-settings/user-settings.component';
 
+import { RouterModule, Routes } from '@angular/router';
+import { RoutingComponentComponent } from './routing-component/routing-component.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { SingleCompanyDetailsComponent } from './single-company-details/single-company-details.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { SingleCompanyDescriptionComponent } from './single-company-description/single-company-description.component';
+import { SingleCompanyLocationsComponent } from './single-company-locations/single-company-locations.component';
+import { SingleCompanyBenefitsComponent } from './single-company-benefits/single-company-benefits.component';
+
+//Add your routes here
+const routes: Routes = [
+  {path: 'company_details', component: CompanyDetailsComponent},
+  {path: 'company_details/:id', component: SingleCompanyDetailsComponent},
+  {path: 'company_details/description/:id', component: SingleCompanyDescriptionComponent},
+  {path: 'company_details/locations/:id', component: SingleCompanyLocationsComponent},
+  {path: 'company_details/benefits/:id', component: SingleCompanyBenefitsComponent}
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,10 +35,21 @@ import { UserSettingsComponent } from './user-settings/user-settings.component';
     RegistrationComponent,
     ReviewsComponent,
     JobsRecruitingComponent,
+<<<<<<< HEAD
     UserSettingsComponent
+=======
+    RoutingComponentComponent,
+    SingleCompanyDetailsComponent,
+    SingleCompanyDescriptionComponent,
+    SingleCompanyLocationsComponent,
+    SingleCompanyBenefitsComponent
+>>>>>>> f20d35bbf976080e59b9a5eacdf3fb31a4a3f493
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

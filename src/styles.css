@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #e5e5e5;
+}
+
+.navbar {
+    position: fixed;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+    top: 0px;
+    width: 100%;
+    z-index: 10;
+}
+
+.details {
+    color: lightgray;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.container {
+    padding: 3px;
+}

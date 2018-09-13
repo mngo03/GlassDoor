@@ -1,0 +1,28 @@
+<div class="bg-white" *ngIf="company">
+  <form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+
+    <h2>About Your Company</h2>
+    <h6>This content will appear on your company overview page for <strong>English, US</strong></h6>
+
+    <div class="form-group">
+        <div class="d-flex flex-row justify-content-between container-label">
+          <h6><strong>Company Description</strong></h6>
+          <div class="details">{{ getNumberCharacters("input-company-description") }}</div>
+        </div>
+        <textarea  (keydown)="getNumberCharacters('input-company-description')" ng-model="companyDescription" id="input-company-description" rows="10" cols="65" maxlength="1000">{{ company.description }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <div class="d-flex flex-row justify-content-between container-label">
+            <h6><strong>Company Mission</strong></h6>
+            <div class="details">{{ getNumberCharacters("input-company-mission") }}</div>
+        </div>
+        <textarea  (keydown)="getNumberCharacters('input-company-mission')" ng-model="companyMission" id="input-company-mission" rows="10" cols="65"  maxlength="1000">{{ company.mission }}</textarea>
+    </div>
+    
+    <div class="d-flex flex-row-reverse" *ngIf="showSubmitButton()">
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </div>
+  </form>
+</div> 
+
