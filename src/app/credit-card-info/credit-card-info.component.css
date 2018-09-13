@@ -1,0 +1,36 @@
+.form-control{
+    border: 1px solid #000000
+}
+.cardName{
+    width:95%;
+}
+.cardNumber{
+    width:75%;
+}
+div,.head,.smallHead {
+    display: inline-block;
+}
+.smallHead, .name, .secure{
+    font-size: 12px;
+}
+div label {
+    display: block;
+
+}
+.credit{
+    background-color: 	#D3D3D3;
+    border: 1px solid black;
+}
+.button{
+    background-color: blue; 
+    color: white; 
+    margin-left:5em;
+    text-align: center; 
+}
+.cancel{
+    border: none;
+    background: none;
+    margin-left:9em;
+    text-align: center; 
+
+}

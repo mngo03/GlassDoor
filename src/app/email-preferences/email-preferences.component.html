@@ -1,0 +1,50 @@
+<h4>Email Preferences</h4>
+<div class='preferences'>
+  <p class='changeColor'>Preferred email address: receieve from other component</p>
+  <b>Company Alerts: &nbsp;&nbsp;&nbsp;&nbsp; Frequency</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <div class='dropdown'>
+    <select class='dropdown-freq' name='frequency'>
+      <option value='null'></option>
+      <option value='never'>Never</option>
+      <option value='weekly'>Weekly</option>
+      <option value='daily'>Daily</option>
+      <option value='sometimes'>As-it-happens</option>
+    </select>
+  </div>
+  <br><br>
+  <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Content Types</b> &nbsp;&nbsp;
+
+  <div class='dropdown'>
+    <select class='dropdown-content' name='content'>
+        <option value='null'></option>
+        <option value='review'>Reviews</option>
+        <option value='interview'>Interviews</option>
+        <option value='benefit'>Benefits</option>
+        <option value='salary'>Salaries</option>
+        <option value='photo'>Photos</option>
+        <option value='reward'>Rewards</option>
+      </select>
+  </div>
+
+  <br>
+
+  <b>Monthly Profile Status:</b>
+  <div class='radioButton'>
+    <input type="radio">Yes
+    <input type="radio">No
+  </div>
+  <br>
+
+  <b>Glassdoor News:</b> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+  <div class='radioButton'>
+    <input type="radio">Yes
+    <input type="radio">No
+  </div>
+  
+</div>  
+
+<button class='reset' (click)='cancelAction()'>Revert</button>
+<button class='manage' (click)='manageAll()'>Manage All Email Preferences</button>
+<button class='update' (click)='UpdatePreferences()'>Save Changes</button>

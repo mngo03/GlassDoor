@@ -1,0 +1,25 @@
+.table{
+    border: 1px solid black;
+}
+.card_type{
+    background-color:blue;
+    color:white;
+    text-align:center;
+    width:10%;  
+}
+.default_card{
+    background-color:grey;
+    color:white;
+    text-align:center;
+    width:1%;
+}
+.card_number{
+    width: 15%;
+    text-align: center;
+}
+button{
+    background:none;
+    border: none;
+    font-size: 10px;
+
+}
