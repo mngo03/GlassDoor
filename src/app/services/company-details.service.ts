@@ -69,4 +69,26 @@ export class CompanyDetailsService {
     var url: string = ("http://localhost:3030/company/company/" + companyId);
     return this.http.put(url, data, httpOptions);
   }
+
+  postBenefit(data: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    var url = "http://localhost:3030/company/benefit/";
+    console.log(data);
+    return this.http.post(url, data, httpOptions);
+  }
+
+  updateBenefit(companyId: string, data: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    console.log(data);
+    var url: string = ("http://localhost:3030/company/company/" + companyId);
+    return this.http.put(url, data, httpOptions);
+  }
 }
