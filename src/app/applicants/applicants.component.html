@@ -1,0 +1,183 @@
+<h1 class="text-left">Applicants</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <p class="navbar-brand">Filter by:</p>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div ng-app="myapp" ng-controller="myCtrl" class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <button class="nav-link dropdown-toggle" type="button" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Ratings
+        </button>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" ng-click="includeRating('unrated')" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Unrated
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" ng-click="includeRating('interested')" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Interested
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" ng-click="includeRating('maybe')" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Maybe
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" ng-click="includeRating('no')"id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  No
+                </label>
+            </div>
+          <div class="dropdown-divider"></div>
+          <div class="btn-group">
+              <a href="#" class="btn btn-primary">Cancel</a>
+              <a href="#" class="btn btn-default">Apply</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+          <button class="nav-link dropdown-toggle" type="button" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Stages
+          </button>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" ng-click="includeStage('applied')" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Applied
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" ng-click="includeStage('reviewed')" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Reviewed
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" ng-click="includeStage('phonescreen')" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Phone Screen
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" ng-click="includeStage('interview')" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Interview
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" ng-click="includeStage('offer')" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Offer
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" ng-click="includeStage('hired')" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Hired
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" ng-click="includeStage('rejected')" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Rejected
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" ng-click="includeStage('applicantswithdrew')" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Applicants Withdrew
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" ng-click="includeStage('new')" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  New
+                </label>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="btn-group">
+                <a href="#" class="btn btn-primary">Cancel</a>
+                <a href="#" class="btn btn-default">Apply</a>
+              </div>
+          </div>
+        </li>
+      <li class="nav-item dropdown">
+        <button class="nav-link dropdown-toggle" type="button" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Job Titles
+        </button>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item" type="button">Cancel</button> 
+          <button class="dropdown-item" type="button">Apply</button>
+        </div>
+      </li>
+    </ul>
+    <ul>
+      <li ng-repeat="applicant in applicants | filter:ratingFilter | filter: stageFilter">
+        {{applicant.name}}
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<script>
+    angular.module('myapp', []);
+
+    function myCtrl($scope) {
+    $scope.applicants = [
+      {'name': 'Jeff', 'rating': 'unrated', 'stage': 'interview'},
+      {'name': 'Chad', 'rating': 'maybe', 'stage': 'hired'},
+      {'name': 'Timothy', 'rating': 'interested', 'stage': 'interview'},
+      {'name': 'Jamal', 'rating': 'no', 'stage': 'rejected'}
+    ];  
+    $scope.ratingIncludes = [];
+    $scope.stageIncludes = [];
+    
+    $scope.includeRating = function(rating) {
+        var i = $.inArray(rating, $scope.ratingIncludes);
+        if (i > -1) {
+            $scope.ratingIncludes.splice(i, 1);
+        } else {
+            $scope.ratingIncludes.push(rating);
+        }
+    }
+
+    $scope.includeStage = function(stage) {
+        var i = $.inArray(stage, $scope.stageIncludes);
+        if (i > -1) {
+            $scope.stageIncludes.splice(i, 1);
+        } else {
+            $scope.stageIncludes.push(stage);
+        }
+    }
+    
+    $scope.ratingFilter = function(applicant) {
+        if ($scope.ratingIncludes.length > 0) {
+            if ($.inArray(applicant.rating, $scope.ratingIncludes) < 0)
+                return;
+        }
+        
+        return applicant;
+    }
+
+    $scope.stageFilter = function(applicant) {
+        if ($scope.stageIncludes.length > 0) {
+            if ($.inArray(applicant.stage, $scope.stageIncludes) < 0)
+                return;
+        }
+        return applicant;
+    }
+
+}
+</script>
+
+    
