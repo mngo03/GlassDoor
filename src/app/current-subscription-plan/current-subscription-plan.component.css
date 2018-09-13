@@ -1,0 +1,24 @@
+.text, .right-text-align{
+    font-size: 10px;
+}
+.cancel{
+    border: none;
+    background:none;
+    color: grey;
+}
+.routerButton{
+    background: blue;
+    color: white;
+}
+button, .routerButton{
+    font-size: 12px;
+    width: 145px;
+}
+.current-subscription{
+    border: 1px solid #B65959;
+    width: 500px;
+}
+text{
+    font-size: 10px;
+    
+}

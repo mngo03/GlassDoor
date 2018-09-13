@@ -1,0 +1,18 @@
+form{
+    width: 50%;
+    border: 1px solid black;
+}
+.form-control{
+    width:25%;
+}
+.form-right{ 
+    align-content: right;
+}
+.cancel{
+    border: none;
+    background: none;
+}
+.save{
+    background-color:blue;
+    color:white;
+}

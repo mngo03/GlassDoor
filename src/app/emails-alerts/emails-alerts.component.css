@@ -1,0 +1,9 @@
+.alerts{
+    border: 1px solid black
+}
+.checkLine{
+    display: inline;
+}
+.changeColor{
+    color: grey;
+}

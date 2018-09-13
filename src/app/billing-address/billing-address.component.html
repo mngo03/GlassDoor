@@ -1,0 +1,40 @@
+<div class='billing'>
+    <h4 class='bill'>Billing Address</h4>
+    
+    <form [formGroup]='billingForm'>
+      <div class='form-group'>
+        <label class='input'>Address Line 1</label>
+        <input type="text" class="form-control-address" formControlName='address'>
+        <div class="alert alert-danger" *ngIf="!billingForm.controls['address'].valid && billingForm.controls['address'].touched">Enter valid address</div>    
+      </div><br>
+      <div class='form-group'>
+        <label class='input'>Address Line 2</label>
+        <input type="text" class="form-control-address" formControlName='address'>
+        <div class="alert alert-danger" *ngIf="!billingForm.controls['address'].valid && billingForm.controls['address'].touched">Enter valid address</div>    
+      </div><br>
+      <div class='countryField'>
+        <label class='input'>Country</label>
+        <input type="text" class="form-control" formControlName='country'>    
+        <div class="alert alert-danger" *ngIf="!billingForm.controls['country'].valid && billingForm.controls['country'].touched">Enter Valid Country</div>    
+      </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class='stateField'>
+        <label class='input'>State</label>
+        <input type="text" class="form-control" formControlName='state'>
+        <div class="alert alert-danger" *ngIf="!billingForm.controls['state'].valid && billingForm.controls['state'].touched">Enter valid state</div>    
+      </div><br><br>
+      <div class='cityField'>
+        <label class='input'>City</label>
+        <input type="text" class="form-control" formControlName='city'>
+        <div class="alert alert-danger" *ngIf="!billingForm.controls['city'].valid && billingForm.controls['city'].touched">Enter valid city</div>    
+      </div>  
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class='zipCode'>
+        <label class='input'>Zip/Postal Code</label>
+        <input type="text" class="form-control" formControlName='zip'>
+        <div class="alert alert-danger" *ngIf="!billingForm.controls['zip'].valid && billingForm.controls['zip'].touched">Enter valid zip code</div>    
+      </div>
+    </form>
+    <br>
+    <br>
+    </div>
