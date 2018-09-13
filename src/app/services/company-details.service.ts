@@ -47,7 +47,6 @@ export class CompanyDetailsService {
     console.log(data);
     return this.http.put(url, data, httpOptions);
   }
-<<<<<<< HEAD
 
   postLocation(data: JSON) {
     const httpOptions = {
@@ -70,7 +69,6 @@ export class CompanyDetailsService {
     var url: string = ("http://localhost:3030/company/company/" + companyId);
     return this.http.put(url, data, httpOptions);
   }
-<<<<<<< HEAD
 
   postBenefit(data: any) {
     const httpOptions = {
@@ -93,8 +91,4 @@ export class CompanyDetailsService {
     var url: string = ("http://localhost:3030/company/company/" + companyId);
     return this.http.put(url, data, httpOptions);
   }
-=======
->>>>>>> Satya
-=======
->>>>>>> parent of f20d35b... Completed all api requests for benefits list and removed container class from some divs
 }
